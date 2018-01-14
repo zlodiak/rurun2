@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+
+  private closeSidenav(sidenav) {
+    sidenav.close();
+  }
+
+  private openSidenav(sidenav) {
+    sidenav.open();
+  }
+
 }

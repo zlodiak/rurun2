@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~vars.scss";
+
+
+.btn-common{
+  background: $basic-color;
+  color: #fff !important;
+
+  &.active{
+    background: $accent-color;
+  }
+
+  &:disabled{
+    background: $unactive-color;
+  }
+}
+
+body{
+  padding: 0;
+  margin: 0;
+  font-family: $basic-font;
+}
+
+p{
+  margin-top: 0;
+}
+
+.page-inner{
+  display: block;
+  overflow: hidden;
+  padding: 10px;
+}
+
+
+html,
+body,
+app-root,
+md-sidenav-container{
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+}
