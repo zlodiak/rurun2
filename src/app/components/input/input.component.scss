@@ -1,0 +1,46 @@
+@import "~vars.scss";
+
+.wrap{
+  padding: 0 $basic-measure $basic-measure;
+
+  .line{
+    padding-bottom: $basic-measure;
+    width: 100%;
+    min-height: $basic-measure;
+    position: relative;
+
+    &.short{
+      width: 150px;
+
+      .icon-outer{
+        height: 34px;
+        padding: 0 $basic-measure;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .btn-default{
+        color: #333;
+        background-color: #e6e6e6;
+        border-color: #adadad;
+      }
+    }
+
+    .error-message{
+      color: $accent-color;
+      position: absolute;
+      top: 0;
+      left: 0;
+      line-height: 1;
+      font-size: 80%;
+    }
+
+    .mat-input-container{
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+}
+

@@ -1,3 +1,49 @@
-<p>
-  input works!
-</p>
+<div class="wrap">
+  <h2 class="h2" mat-dialog-title>Ввод данных</h2>
+
+  <div class="form">
+    <div class="line short">
+      <div class="input-group">
+        <input class="form-control" style="float:none" placeholder="Select a date" ngx-mydatepicker name="mydate"
+               [(ngModel)]="model" [options]="myOptions" #dp="ngx-mydatepicker" (dateChanged)="onDateChanged($event)"/>
+
+        <div class="input-group-btn">
+          <div class="btn btn-default icon-outer" (click)="dp.toggleCalendar()">
+              <i class="glyphicon glyphicon-calendar"></i>
+          </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="line">
+      <mat-form-field>
+        <input matInput placeholder="Максимальный пульс" id="pulseMax" [(ngModel)]="pulseMax" name="pulse_max" type="number" min="0">
+      </mat-form-field>
+    </div>
+
+    <div class="line">
+      <mat-form-field>
+        <input matInput placeholder="Средний пульс" id="pulseAvg" [(ngModel)]="pulseAvg" name="pulse_avg" type="number" min="0">
+      </mat-form-field>
+    </div>
+
+    <div class="line">
+      <mat-form-field>
+        <input matInput placeholder="Послетренировочный пульс" id="pulseAfter" [(ngModel)]="pulseAfter" name="pulse_after" type="number" min="0">
+      </mat-form-field>
+    </div>
+
+    <div class="line">
+      <mat-form-field>
+        <input matInput placeholder="Длительность тренировки (мин)" id="trainingTimeSec" [(ngModel)]="trainingTimeSec" name="training_time_sec" type="number" min="0">
+      </mat-form-field>
+    </div>
+
+    <div class="line">
+      <button class="btn btn-common" type="button" mat-button (click)="clickSubmit()">
+        Отправить
+      </button>
+    </div>
+  </div>
+
+</div>

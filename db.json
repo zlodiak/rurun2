@@ -1,0 +1,18 @@
+{
+  "trainings": [
+    {
+      "id": 1
+    },
+    {
+      "pulseAvg": 3,
+      "id": 2
+    },
+    {
+      "pulseMax": 234234234,
+      "pulseAvg": 344,
+      "pulseAfter": 4444,
+      "trainingTimeSec": 234234,
+      "id": 3
+    }
+  ]
+}
