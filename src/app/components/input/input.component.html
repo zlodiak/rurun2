@@ -1,12 +1,19 @@
 <div class="wrap">
   <h2 class="h2" mat-dialog-title>Ввод данных</h2>
 
-  <div class="form">
+  <form class="form" #form>
     <div class="line short">
       <div class="input-group">
-        <input class="form-control" style="float:none" placeholder="Select a date" ngx-mydatepicker name="mydate"
-               [(ngModel)]="model" [options]="myOptions" #dp="ngx-mydatepicker" (dateChanged)="onDateChanged($event)"/>
-
+        <input class="form-control"
+               id="trainingDateSec"
+               style="float:none"
+               placeholder="Выберите дату"
+               ngx-mydatepicker
+               name="mydate"
+               [(ngModel)]="trainingDateSec"
+               [options]="myOptions"
+               #dp="ngx-mydatepicker"
+               (dateChanged)="onDateChanged($event)"/>
         <div class="input-group-btn">
           <div class="btn btn-default icon-outer" (click)="dp.toggleCalendar()">
               <i class="glyphicon glyphicon-calendar"></i>
@@ -35,7 +42,7 @@
 
     <div class="line">
       <mat-form-field>
-        <input matInput placeholder="Длительность тренировки (мин)" id="trainingTimeSec" [(ngModel)]="trainingTimeSec" name="training_time_sec" type="number" min="0">
+        <input matInput placeholder="Длительность тренировки (сек)" id="trainingTimeSec" [(ngModel)]="trainingTimeSec" name="training_time_sec" type="number" min="0">
       </mat-form-field>
     </div>
 
@@ -44,6 +51,6 @@
         Отправить
       </button>
     </div>
-  </div>
+  </form>
 
 </div>

@@ -4,4 +4,5 @@ export interface Training {
   pulseAvg: number;
   pulseAfter: number;
   trainingTimeSec: number;
+  trainingDateSec: number;
 }

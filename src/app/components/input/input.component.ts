@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import {INgxMyDpOptions, IMyDateModel} from 'ngx-mydatepicker';
 
@@ -17,9 +17,9 @@ export class InputComponent implements OnInit {
   private pulseAvg: number;
   private pulseAfter: number;
   private trainingTimeSec: number;
+  private trainingDateSec: number;
   private training: Training;
 
-  private model: any = { jsdate: new Date() };
   private myOptions: INgxMyDpOptions = {
     dateFormat: 'dd.mm.yyyy',
     firstDayOfWeek: 'mo',
@@ -27,13 +27,15 @@ export class InputComponent implements OnInit {
     monthLabels: { 1: 'Янв', 2: 'Фев', 3: 'Мар', 4: 'Апр', 5: 'Май', 6: 'Июнь', 7: 'Июль', 8: 'Авг', 9: 'Сен', 10: 'Окт', 11: 'Ноя', 12: 'Дек' }
   };
 
+  @ViewChild('form') form;
+
   constructor(private trainingsService: TrainingsService) { }
 
   ngOnInit() {
   }
 
   private onDateChanged(event: IMyDateModel): void {
-    console.log('date selected', event.epoc);
+    this.trainingDateSec = event.epoc;
   }
 
   private clickSubmit() {
@@ -41,8 +43,9 @@ export class InputComponent implements OnInit {
     console.log(this.pulseAvg);
     console.log(this.pulseAfter);
     console.log(this.trainingTimeSec);
+    console.log(this.trainingDateSec);
 
-    if(!this.pulseMax || !this.pulseAvg || !this.pulseAfter || !this.trainingTimeSec) {
+    if(!this.pulseMax || !this.pulseAvg || !this.pulseAfter || !this.trainingTimeSec || !this.trainingDateSec) {
       alert('form not valid');
       return;
     }
@@ -51,11 +54,13 @@ export class InputComponent implements OnInit {
       pulseMax: this.pulseMax,
       pulseAvg: this.pulseAvg,
       pulseAfter: this.pulseAfter,
-      trainingTimeSec: this.trainingTimeSec
+      trainingTimeSec: this.trainingTimeSec,
+      trainingDateSec: this.trainingDateSec
     };
 
     this.trainingsService.createTraining(this.training).subscribe((training) => {
       console.log(training);
+      this.form.nativeElement.reset();
     });
 
   }

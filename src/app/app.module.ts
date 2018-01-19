@@ -19,6 +19,8 @@ import { InputComponent } from './components/input/input.component';
 import { OutputComponent } from './components/output/output.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { TrainingsService } from './services/trainings.service';
+import { TableComponent } from './components/output/table/table.component';
+import { GraphComponent } from './components/output/graph/graph.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { TrainingsService } from './services/trainings.service';
     AppComponent,
     InputComponent,
     OutputComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    TableComponent,
+    GraphComponent
   ],
   imports: [
     NgxMyDatePickerModule.forRoot(),
