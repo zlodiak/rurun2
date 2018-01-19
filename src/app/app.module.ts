@@ -22,6 +22,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { TrainingsService } from './services/trainings.service';
 import { TableComponent } from './components/output/table/table.component';
 import { GraphComponent } from './components/output/graph/graph.component';
+import { DateService } from './services/date.service';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { GraphComponent } from './components/output/graph/graph.component';
     AppRoutingModule
   ],
   providers: [
+    DateService,
     TrainingsService
   ],
   bootstrap: [AppComponent]

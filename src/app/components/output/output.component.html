@@ -12,8 +12,8 @@
     </div>
   </div>
 
-  <div class="content">
-    <app-table [trainings]="trainings" *ngIf="visibleMode == 'table'"></app-table>
-    <app-graph [trainings]="trainings" *ngIf="visibleMode == 'graph'"></app-graph>
+  <div class="content">{{trainings|json}}
+    <app-table *ngIf="visibleMode == 'table'"></app-table>
+    <app-graph *ngIf="visibleMode == 'graph'"></app-graph>
   </div>
 </div>

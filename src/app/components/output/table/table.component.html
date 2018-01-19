@@ -1,5 +1,17 @@
-<p>
-  table works!
-</p>
+<table matSort (matSortChange)="sortData($event)">
+  <tr>
+    <th mat-sort-header="pulseMax">Максимальный пульс (уд/с)</th>
+    <th mat-sort-header="pulseAvg">Средний пульс (уд/с)</th>
+    <th mat-sort-header="pulseAfter">Пульс после тренировки (уд/с)</th>
+    <th mat-sort-header="trainingTimeSec">Время тренировки (мин)</th>
+    <th mat-sort-header="trainingDateSec">Дата тренировки</th>
+  </tr>
 
-{{ trainings | json }}
+  <tr *ngFor="let t of sortedData">
+    <td>{{ t.pulseMax }}</td>
+    <td>{{ t.pulseAvg }}</td>
+    <td>{{ t.pulseAfter }}</td>
+    <td>{{ secsToMins(t.trainingTimeSec) }}</td>
+    <td>{{ dateService.fromUnixToHuman(t.trainingDateSec).slice(0, -6) }}</td>
+  </tr>
+</table>

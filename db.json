@@ -1,42 +1,6 @@
 {
   "trainings": [
     {
-      "id": 1
-    },
-    {
-      "pulseAvg": 3,
-      "id": 2
-    },
-    {
-      "pulseMax": 234234234,
-      "pulseAvg": 344,
-      "pulseAfter": 4444,
-      "trainingTimeSec": 234234,
-      "id": 3
-    },
-    {
-      "pulseMax": 44,
-      "pulseAvg": 4,
-      "pulseAfter": 43,
-      "trainingTimeSec": 43,
-      "id": 4
-    },
-    {
-      "pulseMax": 56,
-      "pulseAvg": 45,
-      "pulseAfter": 3,
-      "trainingTimeSec": 434,
-      "id": 5
-    },
-    {
-      "pulseMax": 4,
-      "pulseAvg": 3,
-      "pulseAfter": 2,
-      "trainingTimeSec": 1,
-      "trainingDateSec": 1516309200,
-      "id": 6
-    },
-    {
       "pulseMax": 1,
       "pulseAvg": 22,
       "pulseAfter": 23,
@@ -77,54 +41,27 @@
       "id": 11
     },
     {
-      "pulseMax": 12,
-      "pulseAvg": 12,
-      "pulseAfter": 2,
-      "trainingTimeSec": 23,
-      "trainingDateSec": {
-        "date": {
-          "year": 2018,
-          "month": 1,
-          "day": 12
-        },
-        "jsdate": "2018-01-11T21:00:00.000Z",
-        "formatted": "12.01.2018",
-        "epoc": 1515704400
-      },
+      "pulseMax": 43,
+      "pulseAvg": 43,
+      "pulseAfter": 43,
+      "trainingTimeSec": 43,
+      "trainingDateSec": 1515704400,
       "id": 12
     },
     {
-      "pulseMax": 213,
-      "pulseAvg": 12,
-      "pulseAfter": 213,
-      "trainingTimeSec": 123,
-      "trainingDateSec": {
-        "date": {
-          "year": 2018,
-          "month": 1,
-          "day": 11
-        },
-        "jsdate": "2018-01-10T21:00:00.000Z",
-        "formatted": "11.01.2018",
-        "epoc": 1515618000
-      },
+      "pulseMax": 23,
+      "pulseAvg": 23,
+      "pulseAfter": 22,
+      "trainingTimeSec": 23,
+      "trainingDateSec": 1515099600,
       "id": 13
     },
     {
-      "pulseMax": 234,
-      "pulseAvg": 34,
-      "pulseAfter": 234,
-      "trainingTimeSec": 234,
-      "trainingDateSec": {
-        "date": {
-          "year": 2018,
-          "month": 1,
-          "day": 5
-        },
-        "jsdate": "2018-01-04T21:00:00.000Z",
-        "formatted": "05.01.2018",
-        "epoc": 1515099600
-      },
+      "pulseMax": 34,
+      "pulseAvg": 23443,
+      "pulseAfter": 456,
+      "trainingTimeSec": 456,
+      "trainingDateSec": 1516914000,
       "id": 14
     }
   ]

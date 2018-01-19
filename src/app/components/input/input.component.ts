@@ -55,7 +55,7 @@ export class InputComponent implements OnInit {
       pulseAvg: this.pulseAvg,
       pulseAfter: this.pulseAfter,
       trainingTimeSec: this.trainingTimeSec,
-      trainingDateSec: this.trainingDateSec
+      trainingDateSec: +this.trainingDateSec['epoc']
     };
 
     this.trainingsService.createTraining(this.training).subscribe((training) => {

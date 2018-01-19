@@ -1,0 +1,21 @@
+@import "~vars.scss";
+
+
+.mat-sort-header-container {
+  text-align: left !important;
+
+  button,
+  .mat-sort-header-button{
+    text-align: left !important;
+  }
+}
+
+tr{
+  th{
+    padding: 0 $basic-measure $basic-measure 0;
+  }
+
+  td{
+    padding: 0 $basic-measure $basic-measure/2 0;
+  }
+}
