@@ -10,7 +10,8 @@ import {  MatButtonModule,
           MatSidenavModule,
           MatSliderModule,
           MatInputModule,
-          MatDatepickerModule} from '@angular/material';
+          MatDatepickerModule,
+          MatSortModule} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -33,6 +34,7 @@ import { GraphComponent } from './components/output/graph/graph.component';
     GraphComponent
   ],
   imports: [
+    MatSortModule,
     NgxMyDatePickerModule.forRoot(),
     MatDatepickerModule,
     HttpClientModule,

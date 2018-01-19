@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { InputComponent } from './components/input/input.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { OutputComponent } from './components/output/output.component';
+import { TableComponent } from './components/output/table/table.component';
+import { GraphComponent } from './components/output/graph/graph.component';
 
 const routes: Routes = [
   {
@@ -13,12 +15,15 @@ const routes: Routes = [
   },
   {
     path: 'input',
-    children: [],
     component: InputComponent
   },
   {
     path: 'output',
-    children: [],
+    children: [
+      { path: '', redirectTo: 'table', pathMatch: 'full' },
+      { path: 'table', component: TableComponent },
+      { path: 'graph', component: GraphComponent }
+    ],
     component: OutputComponent
   },
   {

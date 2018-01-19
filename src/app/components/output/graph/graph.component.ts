@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Training } from '../../../interfaces/training';
+
 
 @Component({
   selector: 'app-graph',
@@ -6,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./graph.component.scss']
 })
 export class GraphComponent implements OnInit {
+
+  @Input() trainings: Training[] = [];
 
   constructor() { }
 

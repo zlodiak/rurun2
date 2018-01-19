@@ -1,0 +1,26 @@
+@import "~vars.scss";
+
+.wrap{
+
+  .visible-mode{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: $basic-measure;
+
+    .btn{
+      background: #fff;
+      border-color: #ccc !important;
+
+      &.active{
+        background: $accent-color;
+        color: #fff;
+      }
+    }
+  }
+
+  .content{
+    padding: $basic-measure;
+  }
+}

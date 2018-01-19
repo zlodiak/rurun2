@@ -1,3 +1,19 @@
-<p>
-  output works!
-</p>
+<div class="wrap">
+  <div class="visible-mode">
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="button"
+              class="btn btn-default active"
+              (click)="setVisibleMode('table'); goTo('/output/table')"
+              [ngClass]="{'active': visibleMode == 'table'}">Таблица</button>
+      <button type="button"
+              class="btn btn-default"
+              (click)="setVisibleMode('graph'); goTo('/output/graph')"
+              [ngClass]="{'active': visibleMode == 'graph'}">График</button>
+    </div>
+  </div>
+
+  <div class="content">
+    <app-table [trainings]="trainings" *ngIf="visibleMode == 'table'"></app-table>
+    <app-graph [trainings]="trainings" *ngIf="visibleMode == 'graph'"></app-graph>
+  </div>
+</div>

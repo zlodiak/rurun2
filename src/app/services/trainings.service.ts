@@ -13,7 +13,11 @@ export class TrainingsService {
   constructor(private httpClient: HttpClient) { }
 
   createTraining(training: Training): Observable<any> {
-  return this.httpClient.post(Config.host + 'trainings', training);
-}
+    return this.httpClient.post(Config.host + 'trainings', training);
+  }
+
+  getTrainings(): Observable<any> {
+    return this.httpClient.get(Config.host + 'trainings');
+  }
 
 }
