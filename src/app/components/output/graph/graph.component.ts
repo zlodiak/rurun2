@@ -12,6 +12,13 @@ import { Training } from '../../../interfaces/training';
 })
 export class GraphComponent implements OnInit {
 
+  private displayField: string = 'pulseAvg';
+  selectFields = [
+    {value: 'pulseMax', viewValue: 'Максимальный пульс'},
+    {value: 'pulseAvg', viewValue: 'Средний пульс'},
+    {value: 'pulseAfter', viewValue: 'Послетренировочный пульс'}
+  ];
+
   single: any[] = [];
   view: any[] = [document.documentElement.clientWidth - 100, 400];
   showXAxis = true;
@@ -35,6 +42,10 @@ export class GraphComponent implements OnInit {
     this.getTrainings();
   }
 
+  private selectField(): void {
+    this.getTrainings();
+  }
+
   private getTrainings(): void {
     this.trainingsService.getTrainings().subscribe((trainings) => {
       this.single = [];
@@ -42,7 +53,7 @@ export class GraphComponent implements OnInit {
       trainings.forEach((t) => {
         this.single.push({
           name: t['trainingDateSec'],
-          value: t['pulseMax']
+          value: t[this.displayField]
         });
       });
 
