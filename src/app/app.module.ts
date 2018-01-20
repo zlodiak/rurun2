@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import {  MatButtonModule,
           MatSidenavModule,
@@ -35,6 +36,7 @@ import { DateService } from './services/date.service';
     GraphComponent
   ],
   imports: [
+    NgxChartsModule,
     MatSortModule,
     NgxMyDatePickerModule.forRoot(),
     MatDatepickerModule,
