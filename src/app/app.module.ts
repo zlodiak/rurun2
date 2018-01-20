@@ -7,7 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
-import {  MatButtonModule,
+import {  MatSnackBarModule,
+          MatButtonModule,
           MatSidenavModule,
           MatSliderModule,
           MatInputModule,
@@ -37,6 +38,7 @@ import { DateService } from './services/date.service';
     GraphComponent
   ],
   imports: [
+    MatSnackBarModule,
     MatSelectModule,
     NgxChartsModule,
     MatSortModule,

@@ -2,18 +2,26 @@
 
 .wrap{
   padding: $basic-measure;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-end;
-  flex-direction: column;
 
   .select-outer{
-    width: 300px;
-    padding-bottom: $basic-measure * 2;
+    padding-bottom: $basic-measure;
 
-    .mat-input-container{
+    .form{
       width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+
+      .line{
+        padding-right: $basic-measure * 2;
+        padding-bottom: $basic-measure;
+
+
+        .mat-input-container{
+          width: 250px;
+        }
+      }
     }
   }
 

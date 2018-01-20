@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {INgxMyDpOptions, IMyDateModel} from 'ngx-mydatepicker';
+
 import { TrainingsService } from '../../../services/trainings.service';
 import { DateService } from '../../../services/date.service';
 import { Training } from '../../../interfaces/training';

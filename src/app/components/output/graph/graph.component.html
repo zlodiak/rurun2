@@ -1,12 +1,16 @@
 <div class="wrap">
   <section class="select-outer">
-    <mat-form-field>
-      <mat-select placeholder="Выберите пульс" [(ngModel)]="displayField" (ngModelChange)="selectField()">
-        <mat-option *ngFor="let f of selectFields" [value]="f.value">
-          {{ f.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div class="form" #form>
+      <div class="line">
+        <mat-form-field>
+          <mat-select placeholder="Выберите пульс" [(ngModel)]="displayField" (ngModelChange)="selectField()">
+            <mat-option *ngFor="let f of selectFields" [value]="f.value">
+              {{ f.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
   </section>
 
   <section class="charts-outer">

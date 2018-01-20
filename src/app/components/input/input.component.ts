@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 
 import {INgxMyDpOptions, IMyDateModel} from 'ngx-mydatepicker';
 
 import { Training } from '../../interfaces/training';
 import { TrainingsService } from '../../services/trainings.service';
+import { Config } from '../../config';
 
 
 @Component({
@@ -29,27 +31,21 @@ export class InputComponent implements OnInit {
 
   @ViewChild('form') form;
 
-  constructor(private trainingsService: TrainingsService) { }
+  constructor(private matSnackBar: MatSnackBar,
+              private trainingsService: TrainingsService) { }
 
   ngOnInit() {
+  }
+
+  private openSnackBar(message: string) {
+    this.matSnackBar.open(message, 'OK', {duration: Config.timePeriod});
   }
 
   private onDateChanged(event: IMyDateModel): void {
     this.trainingDateSec = event.epoc;
   }
 
-  private clickSubmit() {
-    console.log(this.pulseMax);
-    console.log(this.pulseAvg);
-    console.log(this.pulseAfter);
-    console.log(this.trainingTimeSec);
-    console.log(this.trainingDateSec);
-
-    if(!this.pulseMax || !this.pulseAvg || !this.pulseAfter || !this.trainingTimeSec || !this.trainingDateSec) {
-      alert('form not valid');
-      return;
-    }
-
+  private addTraining(): void {
     this.training = {
       pulseMax: this.pulseMax,
       pulseAvg: this.pulseAvg,
@@ -59,9 +55,34 @@ export class InputComponent implements OnInit {
     };
 
     this.trainingsService.createTraining(this.training).subscribe((training) => {
-      console.log(training);
       this.form.nativeElement.reset();
+      this.openSnackBar('Данные тренировки добавлены');
     });
+  }
+
+  private clickSubmit() {
+    if(!this.pulseMax || !this.pulseAvg || !this.pulseAfter || !this.trainingTimeSec || !this.trainingDateSec) {
+      this.openSnackBar('Заполните форму полностью');
+      return;
+    }
+
+    this.trainingsService.getTrainings().subscribe((trainings) => {
+      let similarDaysCnt = 0;
+
+      trainings.forEach((t) => {
+        if(t.trainingDateSec === +this.trainingDateSec['epoc']) {
+          ++similarDaysCnt;
+        }
+      });
+
+      if(similarDaysCnt === 0) {
+        this.addTraining();
+      } else {
+        this.openSnackBar('Этот день уже заполнен');
+        return;
+      }
+    });
+
 
   }
 
