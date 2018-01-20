@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { TrainingsService } from '../../../services/trainings.service';
+import { DateService } from '../../../services/date.service';
 import { Training } from '../../../interfaces/training';
 
 
@@ -11,54 +12,52 @@ import { Training } from '../../../interfaces/training';
 })
 export class GraphComponent implements OnInit {
 
-  single: any[] = [
-    {
-      "name": "Germany",
-      "value": 8940000
-    },
-    {
-      "name": "USA",
-      "value": 5000000
-    },
-    {
-      "name": "France",
-      "value": 7200000
-    }
-  ];
-
-  view: any[] = [700, 400];
-
-  // options
+  single: any[] = [];
+  view: any[] = [document.documentElement.clientWidth - 100, 400];
   showXAxis = true;
   showYAxis = true;
   gradient = false;
-  showLegend = true;
+  showLegend = false;
   showXAxisLabel = true;
-  xAxisLabel = 'Country';
+  xAxisLabel = 'Дата';
   showYAxisLabel = true;
-  yAxisLabel = 'Population';
-
+  yAxisLabel = 'Пульс, уд/мин';
   colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+    domain: ['#C7B42C']
   };
 
-  private trainings: Training[] = [];
+  private selectedTrainings: Training[] = [];
 
-  constructor(private trainingsService: TrainingsService) { Object.assign(this, this.single)   }
+  constructor(private dateService: DateService,
+              private trainingsService: TrainingsService) {}
 
   ngOnInit() {
     this.getTrainings();
-
   }
 
   private getTrainings(): void {
     this.trainingsService.getTrainings().subscribe((trainings) => {
-      this.trainings = trainings;
+      this.single = [];
+
+      trainings.forEach((t) => {
+        this.single.push({
+          name: t['trainingDateSec'],
+          value: t['pulseMax']
+        });
+      });
+
+      this.single.sort(compareDates);
+
+      this.single.map((t) => {
+        t['name'] = this.dateService.fromUnixToHuman(t['name']).slice(0, -6);
+      });
+
+      Object.assign(this, this.single);
     });
   }
 
-  onSelect(event) {
-    console.log(event);
-  }
+}
 
+function compareDates(date1, date2) {
+  return date1['name'] - date2['name'];
 }

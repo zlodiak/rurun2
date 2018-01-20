@@ -9,7 +9,7 @@ import { Router } from '@angular/router'
 })
 export class OutputComponent implements OnInit {
 
-  private visibleMode = 'table';
+  private visibleMode = 'graph';
 
   constructor(private router: Router) { }
 
