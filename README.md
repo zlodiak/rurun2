@@ -6,3 +6,5 @@ service use:
 AgmCoreModule,
 NgxChartsModule (D3 for angular),
 NgxMyDatePickerModule
+
+instead backend use json-server package: https://github.com/typicode/json-server
