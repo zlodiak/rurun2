@@ -5,4 +5,5 @@ export interface Training {
   pulseAfter: number;
   trainingTimeSec: number;
   trainingDateSec: number;
+  route?: any
 }

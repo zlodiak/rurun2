@@ -1,0 +1,21 @@
+<div class="title">{{ data.title }}</div>
+
+<div class="message">
+  <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="12">
+      <agm-polyline *ngFor="let point of data.route;let i = index;" [strokeColor]="'red'">
+        <agm-polyline-point [latitude]="point.latitude" [longitude]="point.longitude">
+        </agm-polyline-point>
+
+        <ng-container *ngIf="data.route[i+1]">
+          <agm-polyline-point [latitude]="data.route[i+1].latitude" [longitude]="data.route[i+1].longitude">
+          </agm-polyline-point>
+        </ng-container>
+      </agm-polyline>
+  </agm-map>
+</div>
+
+<div class="footer">
+  <button class="btn btn-common" mat-button (click)="matDialogRef.close()">
+    Закрыть
+  </button>
+</div>

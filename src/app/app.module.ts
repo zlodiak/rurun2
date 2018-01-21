@@ -6,8 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { AgmCoreModule } from '@agm/core';
 
-import {  MatSnackBarModule,
+import {  MatDialogModule,
+          MatSnackBarModule,
           MatButtonModule,
           MatSidenavModule,
           MatSliderModule,
@@ -26,6 +28,7 @@ import { TrainingsService } from './services/trainings.service';
 import { TableComponent } from './components/output/table/table.component';
 import { GraphComponent } from './components/output/graph/graph.component';
 import { DateService } from './services/date.service';
+import { RouteWindowComponent } from './components/route-window/route-window.component';
 
 
 @NgModule({
@@ -35,9 +38,11 @@ import { DateService } from './services/date.service';
     OutputComponent,
     PageNotFoundComponent,
     TableComponent,
-    GraphComponent
+    GraphComponent,
+    RouteWindowComponent
   ],
   imports: [
+    MatDialogModule,
     MatSnackBarModule,
     MatSelectModule,
     NgxChartsModule,
@@ -52,12 +57,18 @@ import { DateService } from './services/date.service';
     MatSidenavModule,
     BrowserAnimationsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDT2NO8RgOBPpi3Hph-sjfyE1zyRPAoMnQ'
+    })
   ],
   providers: [
     DateService,
     TrainingsService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    RouteWindowComponent
+  ]
 })
 export class AppModule { }

@@ -53,4 +53,18 @@
     </div>
   </form>
 
+  <h3 class="h3">Отметить маршрут (не обязательно):</h3>
+  <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="mapClick($event)" [zoom]="12">
+    <ng-container>
+      <agm-polyline *ngFor="let point of route;let i = index;"  [strokeColor]="'red'">
+        <agm-polyline-point [latitude]="point.latitude" [longitude]="point.longitude">
+        </agm-polyline-point>
+        <ng-container *ngIf="route[i+1]">
+          <agm-polyline-point [latitude]="route[i+1].latitude" [longitude]="route[i+1].longitude">
+          </agm-polyline-point>
+        </ng-container>
+      </agm-polyline>
+    </ng-container>
+  </agm-map>
+
 </div>

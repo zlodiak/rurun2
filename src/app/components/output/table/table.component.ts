@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Sort } from '@angular/material';
+import { MatDialog } from '@angular/material';
 
 import { TrainingsService } from '../../../services/trainings.service';
 import { DateService } from '../../../services/date.service';
 import { Training } from '../../../interfaces/training';
+import { RouteWindowComponent } from '../../route-window/route-window.component';
 
 
 @Component({
@@ -16,7 +18,8 @@ export class TableComponent implements OnInit {
   private sortedData;
   private trainings: Training[] = [];
 
-  constructor(private dateService: DateService,
+  constructor(private matDialog: MatDialog,
+              private dateService: DateService,
               private trainingsService: TrainingsService) {}
 
   ngOnInit() {
@@ -56,6 +59,17 @@ export class TableComponent implements OnInit {
 
   private secsToMins(secs): number {
     return +(secs / 60).toFixed(2);
+  }
+
+  private clickRoute(training): void {
+    console.log(training.route);
+
+    const trainingDateHuman = this.dateService.fromUnixToHuman(training.trainingDateSec).slice(0, -6);
+
+    this.matDialog.open(RouteWindowComponent, {
+      hasBackdrop: true,
+      data: { title: 'Маршрут тренировки ' + trainingDateHuman, route: training.route }
+    });
   }
 
 }

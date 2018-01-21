@@ -17,5 +17,11 @@ tr{
 
   td{
     padding: 0 $basic-measure $basic-measure/2 0;
+
+    .route-link{
+      cursor: pointer;
+      text-decoration: underline;
+      font-weight: bold;
+    }
   }
 }

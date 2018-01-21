@@ -20,7 +20,6 @@ const routes: Routes = [
   {
     path: 'output',
     children: [
-      { path: '', redirectTo: 'graph', pathMatch: 'full' },
       { path: 'table', component: TableComponent },
       { path: 'graph', component: GraphComponent }
     ],

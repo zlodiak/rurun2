@@ -5,6 +5,7 @@
     <th mat-sort-header="pulseAfter">Пульс после тренировки (уд/с)</th>
     <th mat-sort-header="trainingTimeSec">Время тренировки (мин)</th>
     <th mat-sort-header="trainingDateSec">Дата тренировки</th>
+    <th>Маршрут</th>
   </tr>
 
   <tr *ngFor="let t of sortedData">
@@ -13,5 +14,6 @@
     <td>{{ t.pulseAfter }}</td>
     <td>{{ secsToMins(t.trainingTimeSec) }}</td>
     <td>{{ dateService.fromUnixToHuman(t.trainingDateSec).slice(0, -6) }}</td>
+    <td><div class="route-link" (click)="clickRoute(t)" *ngIf="t.route">Отмечен</div></td>
   </tr>
 </table>

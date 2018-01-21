@@ -7,6 +7,12 @@
     padding-bottom: $basic-measure;
   }
 
+  .h3{
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 80%;
+  }
+
   .line{
     padding-bottom: $basic-measure;
     width: 100%;
@@ -45,6 +51,10 @@
       width: 100%;
       max-width: 300px;
     }
+  }
+
+  agm-map {
+    height: 600px;
   }
 }
 

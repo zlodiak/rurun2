@@ -15,6 +15,10 @@ import { Config } from '../../config';
 })
 export class InputComponent implements OnInit {
 
+  public latitude: number;
+  public longitude: number;
+  public route = [];
+
   private pulseMax: number;
   private pulseAvg: number;
   private pulseAfter: number;
@@ -35,6 +39,7 @@ export class InputComponent implements OnInit {
               private trainingsService: TrainingsService) { }
 
   ngOnInit() {
+    this.setCurrentPosition();
   }
 
   private openSnackBar(message: string) {
@@ -54,8 +59,11 @@ export class InputComponent implements OnInit {
       trainingDateSec: +this.trainingDateSec['epoc']
     };
 
+    if(this.route.length) { this.training.route = this.route; }
+
     this.trainingsService.createTraining(this.training).subscribe((training) => {
       this.form.nativeElement.reset();
+      this.route = [];
       this.openSnackBar('Данные тренировки добавлены');
     });
   }
@@ -84,6 +92,22 @@ export class InputComponent implements OnInit {
     });
 
 
+  }
+
+  private mapClick(ev): void {
+    this.route.push({
+      latitude: ev.coords.lat,
+      longitude: ev.coords.lng
+    });
+  }
+
+  private setCurrentPosition() {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+      });
+    }
   }
 
 }

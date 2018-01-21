@@ -1,0 +1,21 @@
+.title{
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+.message{
+  padding-bottom: 20px;
+
+  agm-map {
+    height: 70vh;
+    width: 70vh;
+  }
+}
+
+.footer{
+  overflow: hidden;
+
+  .btn{
+    float: right;
+  }
+}
